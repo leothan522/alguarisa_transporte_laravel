@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parametros', function (Blueprint $table) {
+        Schema::create('rutas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->bigInteger('tabla_id')->nullable();
-            $table->text('valor')->nullable();
+            $table->integer('origen');
+            $table->integer('destino');
+            $table->text('ruta')->nullable();
+            $table->integer('band')->default(1)->nullable();
+            $table->integer('version')->default(0)->nullable();
             $table->text('rowquid')->nullable();
             $table->timestamps();
-            /*
-            $table->bigInteger('users_id')->unsigned()->nullable();
-            $table->foreign('users_id')->references('id')->on('users')->nullOnDelete();
-            */
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parametros');
+        Schema::dropIfExists('rutas');
     }
 };

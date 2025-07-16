@@ -11,17 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parametros', function (Blueprint $table) {
+        Schema::create('vehiculos_tipo', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->bigInteger('tabla_id')->nullable();
-            $table->text('valor')->nullable();
             $table->text('rowquid')->nullable();
             $table->timestamps();
-            /*
-            $table->bigInteger('users_id')->unsigned()->nullable();
-            $table->foreign('users_id')->references('id')->on('users')->nullOnDelete();
-            */
         });
     }
 
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parametros');
+        Schema::dropIfExists('vehiculos_tipo');
     }
 };
